@@ -1,0 +1,33 @@
+
+mongo:
+    image: mongo:4
+    ports:
+      - "27017:27017"
+    container_name: todoapp_mongo
+    expose:
+      - "27017"
+#    command: --replSet rs0
+
+#elasticsearch:
+#    image: docker.elastic.co/elasticsearch/elasticsearch:7.0.0
+#    container_name: elasticsearch
+##    volumes:
+##      - /var/db/data/elasticsearch:/usr/share/elasticsearch
+#    ports:
+#      - 9200:9200
+#      - 9300:9300
+#    environment:
+#      ES_JAVA_OPTS: '-Xms256m -Xmx256m'
+#      network.bind_host: 0.0.0.0
+#      network.host: 0.0.0.0
+#      discovery.type: single-node
+#
+#kibana:
+#    image: docker.elastic.co/kibana/kibana:7.0.0
+#    container_name: kibana
+#    environment:
+#      - "ELASTICSEARCH_URL=http://elasticsearch:9200"
+#    ports:
+#      - "5601:5601"
+#    links:
+#      - elasticsearch:elasticsearch
