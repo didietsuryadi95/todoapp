@@ -1,11 +1,27 @@
+version: '3'
+services:
+  todo-app:
+      # env_file: "env/${ENV}.env"
+      build: .
+      image: todoapp
+      depends_on:
+        - mongo
+      restart: unless-stopped
+      ports:
+        - 8000:8000
+      container_name: todoapp_be
+      links:
+        - mongo
 
-mongo:
-    image: mongo:4
-    ports:
-      - "27018:27017"
-    container_name: todoapp_mongo
-    expose:
-      - "27017"
+  mongo:
+      image: mongo:4
+      ports:
+        - "27018:27017"
+      container_name: todoapp_mongo
+      volumes:
+        - './data:/data/db'
+      expose:
+        - "27017"
 #    command: --replSet rs0
 
 #elasticsearch:

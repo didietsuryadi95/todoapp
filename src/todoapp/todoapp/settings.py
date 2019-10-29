@@ -79,7 +79,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'djongo',
         'NAME': 'todoapp_mongo',
-        'HOST': 'localhost:27018',
+        'HOST': 'mongo:27017',
     }
 }
 
