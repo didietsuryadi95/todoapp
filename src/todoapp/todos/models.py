@@ -37,3 +37,4 @@ class Todo(TimeStampedModel):
     def __str__(self):
         """Visual identification"""
         return f'{self.user} - {self.status}'
+

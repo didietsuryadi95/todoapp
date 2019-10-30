@@ -56,7 +56,7 @@ ROOT_URLCONF = 'todoapp.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -69,6 +69,9 @@ TEMPLATES = [
     },
 ]
 
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/logout'
+
 WSGI_APPLICATION = 'todoapp.wsgi.application'
 
 
@@ -79,7 +82,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'djongo',
         'NAME': 'todoapp_mongo',
-        'HOST': 'mongo:27017',
+        'HOST': 'localhost',
+        'PORT': 27017
     }
 }
 
